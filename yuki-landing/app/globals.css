@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark, .dark *));
+
+@theme inline {
+  --color-yuki-primary: #7738D9;
+  --color-yuki-secondary: #A987FF;
+  --color-yuki-bg: #FFFFFF;
+  --color-yuki-bg-soft: #F8F7FC;
+  --color-yuki-text: #211A2B;
+  --color-yuki-text-muted: #797184;
+  --color-yuki-border: #E7E1ED;
+
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-manrope);
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #211A2B;
+  color-scheme: light;
+}
+
+.dark {
+  --background: #171020;
+  --foreground: #F8F7FC;
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-fraunces), Georgia, serif;
+  letter-spacing: -0.01em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid #7738D9;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
